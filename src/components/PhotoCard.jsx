@@ -1,5 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+
+/* ── Helper to resolve public folder image paths correctly on GitHub Pages ── */
+const getImagePath = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path;
+  }
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  return `${cleanBase}${cleanPath}`;
+}
 
 /* ── Lightbox Modal ── */
 const Lightbox = ({ src, alt, onClose }) => {
@@ -100,14 +112,39 @@ const Lightbox = ({ src, alt, onClose }) => {
 const PhotoCard = ({ src, alt, tall = false }) => {
   const [error, setError] = useState(false)
   const [zoomed, setZoomed] = useState(false)
+  const [currentSrc, setCurrentSrc] = useState(() => getImagePath(src))
+  const [fallbackTried, setFallbackTried] = useState(false)
 
-  const hasImage = !error && !!src
+  useEffect(() => {
+    setCurrentSrc(getImagePath(src))
+    setError(false)
+    setFallbackTried(false)
+  }, [src])
+
+  const handleImageError = () => {
+    if (!fallbackTried && currentSrc) {
+      setFallbackTried(true)
+      // Check if it ends with .jpg, try .jpeg
+      if (currentSrc.toLowerCase().endsWith('.jpg')) {
+        setCurrentSrc(currentSrc.replace(/\.jpg$/i, '.jpeg'))
+        return
+      }
+      // Check if it ends with .jpeg, try .jpg
+      if (currentSrc.toLowerCase().endsWith('.jpeg')) {
+        setCurrentSrc(currentSrc.replace(/\.jpeg$/i, '.jpg'))
+        return
+      }
+    }
+    setError(true)
+  }
+
+  const hasImage = !error && !!currentSrc
 
   return (
     <>
       {/* Lightbox */}
       {zoomed && hasImage && (
-        <Lightbox src={src} alt={alt} onClose={() => setZoomed(false)} />
+        <Lightbox src={currentSrc} alt={alt} onClose={() => setZoomed(false)} />
       )}
 
       <motion.div
@@ -136,9 +173,9 @@ const PhotoCard = ({ src, alt, tall = false }) => {
         >
           {hasImage ? (
             <motion.img
-              src={src}
+              src={currentSrc}
               alt={alt}
-              onError={() => setError(true)}
+              onError={handleImageError}
               whileHover={{ scale: 1.06 }}
               transition={{ duration: 0.4 }}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
