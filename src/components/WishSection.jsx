@@ -209,8 +209,10 @@ const WishSection = ({ meta }) => {
       try {
         const url = `https://api.textmebot.com/send.php?recipient=${meta.phoneNumber}&apikey=${meta.callmebotApiKey}&text=${encodeURIComponent(message)}`
 
-        // CallMeBot might trigger CORS issues block but no-cors will bypass browser errors and deliver it successfully
-        await fetch(url, { mode: 'no-cors' })
+        // Fire the GET request in the background. We ignore CORS error since the message is delivered anyway
+        fetch(url).catch(err => {
+          console.warn('TextMeBot request finished (CORS error expected):', err)
+        })
 
         // Add a small artificial delay for premium loading experience
         setTimeout(() => {
@@ -219,7 +221,7 @@ const WishSection = ({ meta }) => {
           setWish('')
         }, 1200)
       } catch (err) {
-        console.error('Failed to send to TextMeBot:', err)
+        console.error('Unexpected error:', err)
         setIsLoading(false)
         setShowModal(true)
         setWish('')
