@@ -1,73 +1,55 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const getVideoId = (url) => {
-  if (!url) return ''
-  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/\s]+)/)
-  return match ? match[1] : ''
+/* ── Helper to resolve public folder paths correctly on GitHub Pages ── */
+const getAssetPath = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path;
+  }
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  return `${cleanBase}${cleanPath}`;
 }
 
 const MusicPlayer = ({ url, isPlaying }) => {
-  const [muted, setMuted] = useState(false) // Default: unmuted
-  const iframeRef = useRef(null)
+  const [muted, setMuted] = useState(false)
+  const audioRef = useRef(null)
 
-  const sendCommand = useCallback((func, args = []) => {
-    iframeRef.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: 'command', func, args }),
-      '*'
-    )
-  }, [])
+  // Resolve path to the audio file
+  const audioSrc = getAssetPath(url || '/blessing.mp3')
 
-  const toggleMute = useCallback(() => {
-    if (muted) {
-      sendCommand('unMute')
-      sendCommand('setVolume', [80])
-      setMuted(false)
-    } else {
-      sendCommand('mute')
-      setMuted(true)
+  // Handle play/pause state based on isPlaying prop
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch(err => {
+          console.log("Autoplay blocked by browser. Awaiting user interaction.", err);
+        });
+      } else {
+        audioRef.current.pause();
+      }
     }
-  }, [muted, sendCommand])
+  }, [isPlaying])
 
-  const videoId = getVideoId(url)
-
-  // Auto-unmute after iframe loads (user already clicked, so gesture context is valid)
-  const handleIframeLoad = useCallback(() => {
-    setTimeout(() => {
-      sendCommand('unMute')
-      sendCommand('setVolume', [80])
-    }, 1200) // wait for YouTube player to fully initialize
-  }, [sendCommand])
-
-  if (!videoId) return null
-
-  // autoplay=1 + mute=1 => browser allows muted autoplay to start
-  // enablejsapi=1 => postMessage control (auto-unmutes on load)
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&enablejsapi=1&rel=0`
+  const toggleMute = () => {
+    if (audioRef.current) {
+      const nextMuted = !muted
+      audioRef.current.muted = nextMuted
+      setMuted(nextMuted)
+    }
+  }
 
   return (
     <>
-      {/* Iframe loaded only after user clicks the big button */}
-      {isPlaying && (
-        <iframe
-          ref={iframeRef}
-          src={embedUrl}
-          allow="autoplay; encrypted-media"
-          title="background-music"
-          onLoad={handleIframeLoad}
-          style={{
-            position: 'fixed',
-            top: -400,
-            left: -400,
-            width: 320,
-            height: 240,
-            opacity: 0.01,
-            pointerEvents: 'none',
-            zIndex: -9999,
-            border: 'none',
-          }}
-        />
-      )}
+      {/* Hidden HTML5 Audio tag */}
+      <audio
+        ref={audioRef}
+        src={audioSrc}
+        loop
+        style={{ display: 'none' }}
+      />
 
       {/* Floating mute/unmute button — shown only when content is open */}
       <AnimatePresence>

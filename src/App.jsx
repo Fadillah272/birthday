@@ -25,7 +25,7 @@ function App() {
           />
         )}
       </AnimatePresence>
-      <MusicPlayer url={data.meta.youtubeUrl} isPlaying={entered} />
+      <MusicPlayer url={data.meta.musicUrl} isPlaying={entered} />
     </div>
   )
 }
