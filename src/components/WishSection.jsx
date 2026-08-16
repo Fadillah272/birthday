@@ -206,26 +206,19 @@ const WishSection = ({ meta }) => {
       !meta.callmebotApiKey.includes('YOUR_')
 
     if (isConfigured) {
-      try {
-        const url = `https://api.textmebot.com/send.php?recipient=${meta.phoneNumber}&apikey=${meta.callmebotApiKey}&text=${encodeURIComponent(message)}`
+      const url = `https://api.textmebot.com/send.php?recipient=${meta.phoneNumber}&apikey=${meta.callmebotApiKey}&text=${encodeURIComponent(message)}`
 
-        // Fire the GET request in the background. We ignore CORS error since the message is delivered anyway
-        fetch(url).catch(err => {
-          console.warn('TextMeBot request finished (CORS error expected):', err)
-        })
+      // Gunakan Image trick untuk bypass CORS — browser kirim GET request seperti load gambar,
+      // sehingga tidak ada CORS preflight. Pesan tetap terkirim ke TextMeBot di server.
+      const img = new Image()
+      img.src = url
 
-        // Add a small artificial delay for premium loading experience
-        setTimeout(() => {
-          setIsLoading(false)
-          setShowModal(true)
-          setWish('')
-        }, 1200)
-      } catch (err) {
-        console.error('Unexpected error:', err)
+      // Tampilkan modal sukses setelah 1.5 detik (beri waktu request sampai ke server)
+      setTimeout(() => {
         setIsLoading(false)
         setShowModal(true)
         setWish('')
-      }
+      }, 1500)
     } else {
       // Dev mode or unconfigured fallback: simulate background sending
       console.warn('TextMeBot is not configured in data.json. Simulating background sending to WhatsApp.')
