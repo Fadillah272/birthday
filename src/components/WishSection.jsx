@@ -109,7 +109,7 @@ const SuccessModal = ({ onClose, recipientName }) => {
           style={{ marginBottom: 16 }}
         >
           <img
-            src="https://media.tenor.com/y2h40n72g7YAAAAj/peach-goma-peach-and-goma.gif"
+            src="https://media.tenor.com/f1xMo-cU7BQAAAAC/peach-goma-kiss-new.gif"
             alt="Peach Goma Celebration"
             width={160}
             height={160}
@@ -207,7 +207,7 @@ const WishSection = ({ meta }) => {
 
     if (isConfigured) {
       try {
-        const url = `https://api.callmebot.com/whatsapp.php?phone=${meta.phoneNumber}&text=${encodeURIComponent(message)}&apikey=${meta.callmebotApiKey}`
+        const url = `https://api.textmebot.com/send.php?recipient=${meta.phoneNumber}&apikey=${meta.callmebotApiKey}&text=${encodeURIComponent(message)}`
 
         // CallMeBot might trigger CORS issues block but no-cors will bypass browser errors and deliver it successfully
         await fetch(url, { mode: 'no-cors' })
@@ -219,14 +219,14 @@ const WishSection = ({ meta }) => {
           setWish('')
         }, 1200)
       } catch (err) {
-        console.error('Failed to send to CallMeBot:', err)
+        console.error('Failed to send to TextMeBot:', err)
         setIsLoading(false)
         setShowModal(true)
         setWish('')
       }
     } else {
       // Dev mode or unconfigured fallback: simulate background sending
-      console.warn('CallMeBot is not configured in data.json. Simulating background sending to WhatsApp.')
+      console.warn('TextMeBot is not configured in data.json. Simulating background sending to WhatsApp.')
 
       setTimeout(() => {
         setIsLoading(false)
