@@ -4,7 +4,9 @@
     "recipientName": "Maesaroh",
     "birthdayDate": "17 Agustus 2000",
     "senderName": "Irfan Fadillah",
-    "musicUrl": "/blessing.mp3"
+    "musicUrl": "/blessing.mp3",
+    "phoneNumber": "6281214805759",
+    "callmebotApiKey": "cbb50409-489a-4521-8d78-b93056f1e842"
   },
   "theme": {
     "description": "Palet warna romantis: pink pastel lembut dipadu maroon dan gold sebagai aksen, dengan cream sebagai warna dasar netral.",
@@ -87,11 +89,11 @@
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto3.jpeg",
+          "src": "/images/foto14.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto4.jpeg",
+          "src": "/images/foto18.jpeg",
           "alt": "Kenangan bersama"
         },
         {
@@ -105,6 +107,14 @@
         {
           "src": "/images/foto8.jpeg",
           "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto20.jpeg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto21.jpeg",
+          "alt": "Kenangan bersama"
         }
       ]
     },
@@ -115,7 +125,7 @@
       "text": "Kamu adalah orang paling kuat sekaligus paling lembut yang pernah kukenal. Caramu mencintai, caramu peduli pada orang di sekitarmu — semua itu membuatku jatuh cinta berulang kali, setiap hari.",
       "image": {
         "src": "/images/foto11.jpeg",
-        "alt": "Kenangan bersama"
+        "alt": "Kamu wanita paling kuat dan lembut yang pernah aku kenal"
       }
     },
     {
@@ -125,7 +135,7 @@
       "text": "Di hari ulang tahunmu ini, aku berdoa semoga kamu selalu diberi kesehatan, kebahagiaan, dan kekuatan dalam menjalani setiap langkahmu. Semoga semua mimpi dan harapanmu perlahan menjadi nyata, semoga kamu selalu dikelilingi orang-orang yang menyayangimu setulus hati, dan semoga tahun ini membawa lebih banyak alasan untuk kamu tersenyum. Aku berharap yang terbaik untukmu, sekarang dan selamanya.",
       "image": {
         "src": "/images/foto12.jpeg",
-        "alt": "Momen perayaan ulang tahun 3"
+        "alt": "Semua doa yang terbaik untuk mu sayang"
       }
     },
     {
@@ -134,8 +144,8 @@
       "heading": "Selamanya Kita",
       "text": "Terima kasih sudah menjadi kamu — yang selalu jujur, hangat, dan tulus. Aku ingin terus berjalan bersamamu, merayakan lebih banyak lagi ulang tahun, lebih banyak lagi cerita, lebih banyak lagi kita. Selamat ulang tahun, cintaku. Aku menyayangimu, lebih dari yang bisa kata-kata ini sampaikan. 🤍",
       "image": {
-        "src": "/images/foto10.jpeg",
-        "alt": "Kenangan bersama"
+        "src": "/images/foto17.jpeg",
+        "alt": "Semoga kamu selalu bahagia yaa"
       },
       "closingButtonLabel": "💌 Kirim pelukan virtual"
     }

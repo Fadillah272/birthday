@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import SectionCard from './SectionCard'
 import FloatingHearts from './FloatingHearts'
 import ClosingButton from './ClosingButton'
+import WishSection from './WishSection'
 
 const containerVariants = {
   hidden: {},
@@ -91,6 +92,8 @@ const MainContent = ({ data }) => {
           />
         ))}
       </main>
+
+      <WishSection meta={data.meta} />
 
       {/* ── Footer ── */}
       <motion.footer
