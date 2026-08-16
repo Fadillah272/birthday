@@ -206,14 +206,17 @@ const WishSection = ({ meta }) => {
       !meta.callmebotApiKey.includes('YOUR_')
 
     if (isConfigured) {
-      const url = `https://api.textmebot.com/send.php?recipient=${meta.phoneNumber}&apikey=${meta.callmebotApiKey}&text=${encodeURIComponent(message)}`
+      const apiUrl = `https://api.textmebot.com/send.php?recipient=${meta.phoneNumber}&apikey=${meta.callmebotApiKey}&text=${encodeURIComponent(message)}`
 
-      // Gunakan Image trick untuk bypass CORS — browser kirim GET request seperti load gambar,
-      // sehingga tidak ada CORS preflight. Pesan tetap terkirim ke TextMeBot di server.
-      const img = new Image()
-      img.src = url
+      // Gunakan corsproxy.io sebagai relay — proxy menambahkan header yg dibutuhkan server
+      // (termasuk Content-Length) sehingga tidak kena error 411 dari TextMeBot/Cloudflare
+      const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(apiUrl)}`
 
-      // Tampilkan modal sukses setelah 1.5 detik (beri waktu request sampai ke server)
+      fetch(proxyUrl).catch(err => {
+        console.warn('TextMeBot via proxy finished:', err)
+      })
+
+      // Tampilkan modal sukses setelah 1.5 detik
       setTimeout(() => {
         setIsLoading(false)
         setShowModal(true)
