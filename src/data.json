@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Selamat Ulang Tahun, Sayangku",
+    "recipientName": "Maesaroh",
+    "birthdayDate": "17 Agustus 2000",
+    "senderName": "Irfan Fadillah",
+    "youtubeUrl": "https://www.youtube.com/watch?v=ib8DHcaTFag"
+  },
+  "theme": {
+    "description": "Palet warna romantis: pink pastel lembut dipadu maroon dan gold sebagai aksen, dengan cream sebagai warna dasar netral.",
+    "colors": {
+      "background": "#FFF8F3",
+      "backgroundAlt": "#FFEFE9",
+      "primary": "#D46A8B",
+      "primaryDark": "#9C3B54",
+      "primaryLight": "#F7C6D9",
+      "accentGold": "#D4AF6A",
+      "textDark": "#5C2A3A",
+      "textMuted": "#8C6A75",
+      "white": "#FFFFFF",
+      "overlay": "rgba(156,59,84,0.55)"
+    },
+    "tailwindConfigSnippet": {
+      "extend": {
+        "colors": {
+          "blush": {
+            "50": "#FFF8F3",
+            "100": "#FFEFE9",
+            "200": "#F7C6D9",
+            "400": "#D46A8B",
+            "600": "#9C3B54",
+            "800": "#5C2A3A"
+          },
+          "gold": {
+            "400": "#D4AF6A"
+          }
+        },
+        "fontFamily": {
+          "display": [
+            "Playfair Display",
+            "serif"
+          ],
+          "body": [
+            "Poppins",
+            "sans-serif"
+          ]
+        }
+      }
+    }
+  },
+  "openingScreen": {
+    "buttonLabel": "🎁 Klik untuk membuka kejutan untukmu..."
+  },
+  "sections": [
+    {
+      "id": "pembuka",
+      "order": 1,
+      "heading": "Untukmu, di Hari Spesial Ini",
+      "text": "Selamat ulang tahun, sayangku. 💕 Di hari spesial ini, aku ingin waktu berhenti sejenak, hanya untuk memastikan kamu tahu betapa berartinya kamu bagiku.",
+      "image": {
+        "src": "/images/foto1.jpg",
+        "alt": "Momen perayaan ulang tahun 1"
+      }
+    },
+    {
+      "id": "syukur",
+      "order": 2,
+      "heading": "Rasa Syukur",
+      "text": "Terima kasih sudah hadir dan mengisi hari-hariku dengan warna yang tak pernah kubayangkan sebelumnya. Bersamamu, hal-hal kecil terasa jadi begitu berharga.",
+      "image": {
+        "src": "/images/foto2.jpg",
+        "alt": "Momen perayaan ulang tahun 2"
+      }
+    },
+    {
+      "id": "kenangan",
+      "order": 3,
+      "heading": "Kenangan Bersama",
+      "text": "Setiap momen yang kita lalui bersama adalah kepingan kecil yang kusimpan rapi di hatiku — dari obrolan panjang tengah malam sampai tawa konyol yang cuma kita berdua yang mengerti.",
+      "gallery": [
+        {
+          "src": "/images/foto4.jpg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto5.jpg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto6.jpg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto7.jpg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto8.jpg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto9.jpg",
+          "alt": "Kenangan bersama"
+        },
+        {
+          "src": "/images/foto10.jpg",
+          "alt": "Kenangan bersama"
+        }
+      ]
+    },
+    {
+      "id": "kekaguman",
+      "order": 4,
+      "heading": "Kekaguman & Cinta",
+      "text": "Kamu adalah orang paling kuat sekaligus paling lembut yang pernah kukenal. Caramu mencintai, caramu peduli pada orang di sekitarmu — semua itu membuatku jatuh cinta berulang kali, setiap hari.",
+      "image": {
+        "src": "/images/foto11.jpg",
+        "alt": "Kenangan bersama"
+      }
+    },
+    {
+      "id": "doa",
+      "order": 5,
+      "heading": "Doa & Harapan Terbaik",
+      "text": "Di hari ulang tahunmu ini, aku berdoa semoga kamu selalu diberi kesehatan, kebahagiaan, dan kekuatan dalam menjalani setiap langkahmu. Semoga semua mimpi dan harapanmu perlahan menjadi nyata, semoga kamu selalu dikelilingi orang-orang yang menyayangimu setulus hati, dan semoga tahun ini membawa lebih banyak alasan untuk kamu tersenyum. Aku berharap yang terbaik untukmu, sekarang dan selamanya.",
+      "image": {
+        "src": "/images/foto3.jpg",
+        "alt": "Momen perayaan ulang tahun 3"
+      }
+    },
+    {
+      "id": "penutup",
+      "order": 6,
+      "heading": "Selamanya Kita",
+      "text": "Terima kasih sudah menjadi kamu — yang selalu jujur, hangat, dan tulus. Aku ingin terus berjalan bersamamu, merayakan lebih banyak lagi ulang tahun, lebih banyak lagi cerita, lebih banyak lagi kita. Selamat ulang tahun, cintaku. Aku menyayangimu, lebih dari yang bisa kata-kata ini sampaikan. 🤍",
+      "image": {
+        "src": "/images/foto12.jpg",
+        "alt": "Kenangan bersama"
+      },
+      "closingButtonLabel": "💌 Kirim pelukan virtual"
+    }
+  ]
+}

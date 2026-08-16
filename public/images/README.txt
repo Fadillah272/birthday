@@ -1,0 +1,13 @@
+Taruh foto kamu di sini dengan nama file sesuai data.json:
+- foto1.jpg (Momen dalam perayaan ulang tahun)
+- foto2.jpg (Momen dalam perayaan ulang tahun)
+- foto3.jpg (Momen dalam perayaan ulang tahun)
+- foto4.jpg (Kenangan yang kita lalui)
+- foto5.jpg (Kenangan yang kita lalui)
+- foto6.jpg (Kenangan yang kita lalui)
+- foto7.jpg (Kenangan yang kita lalui)
+- foto8.jpg (Kenangan yang kita lalui)
+- foto9.jpg (Kenangan yang kita lalui)
+- foto10.jpg (Kenangan yang kita lalui)
+- foto11.jpg (Kenangan yang kita lalui)
+- foto12.jpg (Kenangan yang kita lalui)
