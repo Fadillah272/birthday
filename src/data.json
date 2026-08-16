@@ -58,8 +58,8 @@
       "heading": "Untukmu, di Hari Spesial Ini",
       "text": "Selamat ulang tahun, sayangku. 💕 Di hari spesial ini, aku ingin waktu berhenti sejenak, hanya untuk memastikan kamu tahu betapa berartinya kamu bagiku.",
       "image": {
-        "src": "/images/foto1.jpg",
-        "alt": "Momen perayaan ulang tahun 1"
+        "src": "/images/foto1.jpeg",
+        "alt": "Momen perayaan ulang tahun"
       }
     },
     {
@@ -68,8 +68,8 @@
       "heading": "Rasa Syukur",
       "text": "Terima kasih sudah hadir dan mengisi hari-hariku dengan warna yang tak pernah kubayangkan sebelumnya. Bersamamu, hal-hal kecil terasa jadi begitu berharga.",
       "image": {
-        "src": "/images/foto2.jpg",
-        "alt": "Momen perayaan ulang tahun 2"
+        "src": "/images/foto-mae.jpeg",
+        "alt": "Momen perayaan ulang tahun"
       }
     },
     {
@@ -79,31 +79,31 @@
       "text": "Setiap momen yang kita lalui bersama adalah kepingan kecil yang kusimpan rapi di hatiku — dari obrolan panjang tengah malam sampai tawa konyol yang cuma kita berdua yang mengerti.",
       "gallery": [
         {
-          "src": "/images/foto4.jpg",
+          "src": "/images/foto-bersama.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto5.jpg",
+          "src": "/images/foto2.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto6.jpg",
+          "src": "/images/foto3.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto7.jpg",
+          "src": "/images/foto4.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto8.jpg",
+          "src": "/images/foto6.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto9.jpg",
+          "src": "/images/foto7.jpeg",
           "alt": "Kenangan bersama"
         },
         {
-          "src": "/images/foto10.jpg",
+          "src": "/images/foto8.jpeg",
           "alt": "Kenangan bersama"
         }
       ]
@@ -124,7 +124,7 @@
       "heading": "Doa & Harapan Terbaik",
       "text": "Di hari ulang tahunmu ini, aku berdoa semoga kamu selalu diberi kesehatan, kebahagiaan, dan kekuatan dalam menjalani setiap langkahmu. Semoga semua mimpi dan harapanmu perlahan menjadi nyata, semoga kamu selalu dikelilingi orang-orang yang menyayangimu setulus hati, dan semoga tahun ini membawa lebih banyak alasan untuk kamu tersenyum. Aku berharap yang terbaik untukmu, sekarang dan selamanya.",
       "image": {
-        "src": "/images/foto3.jpg",
+        "src": "/images/foto12.jpeg",
         "alt": "Momen perayaan ulang tahun 3"
       }
     },
